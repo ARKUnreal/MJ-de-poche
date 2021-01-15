@@ -1,0 +1,100 @@
+
+const add = document.getElementById('add');
+const close = document.getElementById('close');
+const modal = document.getElementById('modal');
+const modalForm = document.getElementById('modalform');
+const compositionId = document.getElementById('composition');
+const nbPlayers = document.getElementById('nb-players');
+const listRoles = document.getElementById('list-display');
+const notification = document.getElementById('notification-container');
+const roles = ["Loup-Garou", "Villageois", "absorbeur", "ancien du village", "ange", "bienveillant", "cafteur",
+"canonnier", "chaman", "chasseur", "chasseur de prime", "tueur a gage", "assassin",
+"chef-loup", "chirurgien", "chomeur", "corbeau", "colosse", "comedien", "complice",
+"copieur", "cowboy", "cupidon", "demon", "destructeur", "detective", "devin", "enfant de la foret", "enfant sauvage", "esclavagiste", "faucheuse", "freres d'arme", "3 frères", "garde du corps", "joker", "juge", "joueur de flute", "lanceur de piece","loup blanc", "loup masqué", "loup sanguin", "loup supreme", "maire", "magicien", "mangeur d'ame", "mamie", "marchand", "medium", "mercenaire", "ombre", "petite fille", "pharaon", "prince charmant", "prisonnier", "revenant","salvateur", "samourai", "savant fou", "sirene", "sorciere", "vampire", "victime", "villageois", "voyante", "zombie"];
+const composition = [];
+
+console.log(roles.length);
+
+function addRoleList(){
+  roles.forEach((item, i) => {
+
+    var div = document.createElement('div');
+    var label = document.createElement("label");
+    div.className = "role";
+    label.htmlFor = item;
+    label.innerHTML = item.charAt(0).toUpperCase() + item.slice(1);
+
+    var inputAdd = document.createElement('input');
+    var inputRemove = document.createElement('input');
+
+    inputAdd.setAttribute('type', 'button');
+    inputAdd.setAttribute('value', '+');
+    inputRemove.setAttribute('type', 'button');
+    inputRemove.setAttribute('value', '-');
+    inputAdd.classList = "role-add";
+    inputRemove.classList = "role-remove";
+    inputAdd.id = item+"Add";
+    inputRemove.id = item+"Remove";
+
+    div.appendChild(label);
+    div.appendChild(inputAdd);
+    div.appendChild(inputRemove);
+    modalForm.appendChild(div);
+    addToComp();
+  });
+
+
+};
+
+function addToComp(){
+  const roleAddition = document.querySelectorAll('input.role-add');
+  roleAddition.forEach((item, i) => {
+    roleAddition[i].onclick = function() {
+      const roleAdded = removeChars(roleAddition[i].id);
+      composition.push(roleAdded);
+      console.log(composition);
+      if (composition.length <= nbPlayers.value) {
+        const element = document.createElement('div');
+        listRoles.appendChild(element);
+        element.classList.add('role-display');
+        element.innerHTML = removeChars(firstLetterMaj(item.id));
+      } else {
+        showNotification();
+      }
+    }
+
+  });
+};
+
+function removeChars(word) {
+  var str = word;
+  stringFull = str.substring(0,str.length-3);
+  return stringFull;
+}
+
+function firstLetterMaj(word) {
+  var returned = word.charAt(0).toUpperCase() + word.slice(1);
+  return returned;
+}
+
+function showNotification(){
+  notification.classList.add('show');
+
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 2000);
+}
+
+addRoleList();
+
+
+// Event Listeners
+
+// Show Modal
+add.addEventListener('click', () => modal.classList.add('show-modal'));
+
+// Hide Modal
+close.addEventListener('click', () => modal.classList.remove('show-modal'));
+
+// Hide modal on outside
+window.addEventListener('click', e => e.target == modal ? modal.classList.remove('show-modal') : false);

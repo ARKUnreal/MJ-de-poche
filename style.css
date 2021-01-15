@@ -1,0 +1,190 @@
+* {
+  box-sizing
+}
+
+body {
+  background-color: #983838;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 20px;
+  color: #fff;
+}
+
+.container{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: rgba(0,0,0,0.6);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-container.show-modal {
+  display: block;
+
+}
+
+.modal {
+  background-color: #e0c399;
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  position: RELATIVE;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  max-width: 100%;
+  width: 400px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-header {
+  background: var(--primary-color);
+  color: #000;
+  padding: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+.modal-content {
+  padding: 0px 20px 20px;
+}
+
+.role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #983838;
+}
+
+.list-roles{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.role-display{
+  padding: 10px;
+  font-style: italic;
+  border-right: 1px solid #fff;
+}
+
+.role-add{
+  margin: 0px 10px 10px auto;
+  padding: 5px 8px;
+  background-color: #4DBE3F;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.role-remove{
+    margin: 0px 10px 10px 0px;
+    padding: 5px 10px;
+    background-color: #C0392B;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.modal-form div {
+  margin: 15px 0;
+}
+
+.modal-form label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.modal-form .form-input {
+  padding: 8px;
+  width: 100%;
+}
+
+.close-btn {
+  background: red;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  border: none;
+  padding: 3px 0px 5px 0px;
+  border-bottom-left-radius: 3px;
+  color: #fff;
+  width: 30px;
+  height: 32px;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.btn{
+  margin-top: 15px;
+}
+
+.notification-container {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 0px 0px 10px 10px;
+  padding: 15px 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: -55px;
+  width: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.notification-container p {
+  margin: 0;
+}
+
+.notification-container.show {
+  transform: translateY(50px);
+}
+
+.role-definition{
+  left: 20px;
+  align-items: left;
+  text-align: left;
+}
+
+h2{
+  color: #e0c399;
+  margin: 10px 0px 0px 10px;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 3px;
+  font-weight: bold;
+  background-color: white;
+}
