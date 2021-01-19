@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ de poche</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header-buttons">
+      <p><a href="roles.html">Liste des roles</a></p>
+      <p><a href="compositions.html">Compositions</a></p>
+    </div>
+
+    <div class="name">
+    <p><strong>MJ</strong> de poche</p>
+    </div>
+
+    <div class="logo" id="logo-loup">
+      <img src="img/logo2.svg" alt="Photo Loup-Garou" class="img-loup" id="image" />
+    </div>
+    <div class="container" id="container">
+      <div class="players" id="player">
+        <label>Nombre de joueurs</label>
+        <select id="nb-players">
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+        </select>
+      </div>
+
+      <div class="roles" id="role-show">
+        <h3>Composition</h3>
+        <div class="list-roles" id="list-display">
+          <p id="composition"></p>
+
+        </div>
+        <!--<div class="double-roles">
+          <button class="btn" id="double">
+            Rôles doubles
+          </button>
+        </div>-->
+        <div class="add-roles">
+          <button class="btn" id="add">
+            Ajouter des rôles
+          </button>
+          <button class="btn" id="confirm-composition">Valider</button>
+        </div>
+      </div>
+
+      <div class="ordre-compo hidden" id="ordre-appel">
+        <h3>Ordre d'appel: </h3>
+      </div>
+
+        <!-- Modal -->
+        <div class="modal-container" id="modal">
+          <div class="modal">
+            <button class="close-btn" id="close">
+            X
+            </button>
+            <div class="modal-header">
+              <h3>Rôles</h3>
+            </div>
+            <div class="modal-content">
+              <form class="modal-form" id="modalform">
+
+              </form>
+              <input type="button" class="submit-btn" value="Valider">
+            </div>
+          </div>
+        </div>
+
+        <div class="notification-container" id="notification-container">
+        <p id="notif-message"></p>
+        </div>
+      <script type="text/javascript" src="script.js"></script>
+    </div>
+  </body>
+</html>
